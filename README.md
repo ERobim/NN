@@ -1,1 +1,1 @@
-Getting to know how a NN works using python
+Getting to know how a Neural Network functions using python
