@@ -19,4 +19,28 @@ bias = 4
 n = Neuron(weight, bias)
 
 x = np.array([2, 3])
-print(n.feedforward(x))
+#print(n.feedforward(x))
+
+############################################################################################
+
+class OurNeuralNetwork:
+    def __init__(self):
+        weight = np.array([0,1])
+        bias = 0
+
+        # The Neuron class here is from the previous section
+        self.h1 = Neuron(weight, bias)
+        self.h2 = Neuron(weight, bias)
+        self.o1 = Neuron(weight, bias)
+
+    def feedforward(self, x):
+        out_h1 = self.h1.feedforward(x)
+        out_h2 = self.h2.feedforward(x)
+
+        out_o1 = self.o1.feedforward(np.array([out_h1, out_h2]))
+
+        return out_o1
+
+network = OurNeuralNetwork()
+x = np.array([2, 3])
+print(network.feedforward(x))
